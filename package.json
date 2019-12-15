@@ -2,20 +2,21 @@
   "name": "ionic-react",
   "version": "0.0.1",
   "private": true,
+  "homepage": "http://jetobe95.github.io/ionic-react-course",
   "dependencies": {
-    "@ionic/react": "^4.11.0",
-    "@ionic/react-router": "^4.11.0",
-    "@types/jest": "^24.0.18",
-    "@types/node": "^12.7.12",
-    "@types/react": "^16.9.5",
-    "@types/react-dom": "^16.9.1",
-    "@types/react-router": "^5.1.1",
-    "@types/react-router-dom": "^5.1.0",
-    "ionicons": "^4.6.3",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-router": "^5.1.0",
-    "react-router-dom": "^5.1.0",
+    "@ionic/react": "4.11.0",
+    "@ionic/react-router": "4.11.0",
+    "@types/jest": "24.0.18",
+    "@types/node": "12.7.12",
+    "@types/react": "16.9.5",
+    "@types/react-dom": "16.9.1",
+    "@types/react-router": "5.1.1",
+    "@types/react-router-dom": "5.1.0",
+    "ionicons": "4.6.3",
+    "react": "16.10.2",
+    "react-dom": "16.10.2",
+    "react-router": "5.1.0",
+    "react-router-dom": "5.1.0",
     "react-scripts": "3.2.0",
     "typescript": "3.6.3"
   },
@@ -23,7 +24,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "upload": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,5 +43,8 @@
       "last 1 safari version"
     ]
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
+  }
 }
