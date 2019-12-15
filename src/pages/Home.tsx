@@ -1,25 +1,45 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
+import {
+  IonPage,
+} from '@ionic/react';
+import Header from './Home/components/header';
+import Content, { Product } from './Home/components/content';
+
+
+export interface Cart {
+  products: Product[]
+}
+interface CartContext extends Cart {
+  updateProducts?: any
+}
+
+
+export const cartContext = React.createContext<CartContext>({ products: [] });
+export const CartProvider = cartContext.Provider;
+export const CarConsumer = cartContext.Provider;
+
+
 
 const Home: React.FC = () => {
+  const [products, setProducts] = React.useState<Product[]>([
+    { id: '1', name: 'Laptop', price: '2000' }
+  ])
+
+  const updateProducts = (products: Product[]) => {
+    setProducts(products);
+  }
+
+
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Ionic Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent className="ion-padding">
-        The world is your oyster.
-        <p>
-          If you get lost, the{' '}
-          <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/">
-            docs
-          </a>{' '}
-          will be your guide.
-        </p>
-      </IonContent>
-    </IonPage>
+    <CartProvider value={{
+      products,
+      updateProducts
+    }}>
+      <IonPage>
+        <Header />
+        <Content />
+      </IonPage>
+    </CartProvider>
   );
 };
 
